@@ -1,6 +1,4 @@
-Sure! Here is a basic README template for your `ds-in-c` repository:
 
-```markdown
 # Data Structures in C
 
 This repository contains implementations of various data structures in C and C++. Each data structure is implemented in a separate file with example usage and explanations.
