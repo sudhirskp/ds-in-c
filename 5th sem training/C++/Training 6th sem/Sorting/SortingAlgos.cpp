@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 //4 2 1 6 9
@@ -29,7 +28,7 @@ public:
 
             swapped = false;
             for (int j = 0; j < size-i-1; j++) {
-                if (ARRAY[j] > ARRAY[j+1]) {
+                if (ARRAY[j] > ARRAY[j+1]) {1
                     swap(ARRAY[j], ARRAY[j+1]); 
                     swapped = true;
                 }
