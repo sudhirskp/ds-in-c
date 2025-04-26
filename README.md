@@ -40,5 +40,3 @@ Contributions are welcome! If you have any improvements or new data structures t
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 ```
-
-Feel free to modify the content to better suit your project's specifics and details.
