@@ -48,10 +48,36 @@ void BinaryTree::inorder(Node* root) {
     inorder(root->right);
 }
 
+void BinaryTree::postorder(Node* root) {
+    if (root == nullptr) {
+        return;
+    }
+    postorder(root->left);
+    postorder(root->right);
+    cout << root->data << " ";
+   
+}
+
+void BinaryTree::preorder(Node* root) {
+    if (root == nullptr) {
+        return;
+    }
+    cout << root->data << " ";
+    preorder(root->left);
+    preorder(root->right);
+}
+
 int main(){
     BinaryTree tree;
     Node* root = tree.CreateTree();
     cout << "Inorder Traversal: ";
     tree.inorder(root);
+    cout << endl;
+    cout << "Preorder Traversal: ";
+    tree.preorder(root);
+    cout << endl;
+    cout << "Postorder Traversal: ";
+    tree.postorder(root);
+    cout << endl;
     return 0;
 }
