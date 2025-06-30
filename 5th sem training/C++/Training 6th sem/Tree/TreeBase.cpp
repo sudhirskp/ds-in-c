@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+#include<queue>
 
 
 class Node {
@@ -21,6 +22,8 @@ class BinaryTree {
     void inorder(Node*);
     void preorder(Node*);
     void postorder(Node*);
+    void bfs(Node*);
+    void levelorder(Node*);
 };
 
 Node* BinaryTree::CreateTree() {
@@ -65,6 +68,84 @@ void BinaryTree::preorder(Node* root) {
     cout << root->data << " ";
     preorder(root->left);
     preorder(root->right);
+}
+
+//algo-
+//1.add root element in the queue
+//2.perform the below step untill the queue is empty
+//3.pop the front element from the queue and print it or store then print
+//4.if the popped element has left child then add it to the queue
+//5.if the popped element has right child then add it to the queue
+
+
+void BinaryTree::bfs(Node* root){
+    // if(root == nullptr) {
+    //     return;
+    // }
+    // queue<Node*> q;
+    // q.push(root);
+    // while(!q.empty()) {
+    //     Node* current = q.front();
+    //     q.pop();
+    //     cout << current->data << " ";
+    //     if(current->left != nullptr) {
+    //         q.push(current->left);
+    //     }
+    //     if(current->right != nullptr) {
+    //         q.push(current->right);
+    //     }
+    // }
+
+    int front = -1 , rear = -1;
+    Node* queue[100]; 
+    if(root == nullptr) return ;
+    queue[++rear] = root;
+    while(front != rear) {
+        Node* current = queue[++front]; 
+        cout << current->data << " ";
+        
+       
+        if(current->left != nullptr) {
+            queue[++rear] = current->left;
+        }
+        
+        if(current->right != nullptr) {
+            queue[++rear] = current->right;
+        }
+    }
+}
+
+TreeNode* BST::insert(TreeNode* root, int val){
+	if(root == NULL)
+	   return new TreeNode(val);
+	else if(val < root->data)
+	   root->left = insert(root->left, val);
+	else
+	   root->right = insert(root->right, val); 
+}
+
+
+void BinaryTree::levelorder(Node* root){
+    if(root == nullptr) {
+        return;
+    }
+    queue<Node*> q;
+    q.push(root);
+    while(!q.empty()) {
+        int size = q.size();
+        for(int i = 0; i < size; i++) {
+            Node* current = q.front();
+            q.pop();
+            cout << current->data << " ";
+            if(current->left != nullptr) {
+                q.push(current->left);
+            }
+            if(current->right != nullptr) {
+                q.push(current->right);
+            }
+        }
+        cout << endl;
+    }
 }
 
 int main(){
