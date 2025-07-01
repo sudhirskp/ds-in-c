@@ -1,5 +1,4 @@
 #include<iostream>
-
 using namespace std;
 
 class QuickSort{
@@ -10,10 +9,9 @@ class QuickSort{
 	public:
 		
 		QuickSort(int size){
-			
 			this->SIZE = size;
 			ARRAY = new int[SIZE];
-				
+
 		}
 		
 		

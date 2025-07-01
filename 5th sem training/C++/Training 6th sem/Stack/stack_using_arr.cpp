@@ -60,6 +60,20 @@ class Stack{
         delete[] tempArr;
     }
 
+
+    int Search(int val){
+        while(!isEmpty()){
+            if(arr[top] == val){
+                cout << "Value is Present " << arr[top] << endl;
+                return arr[top];
+            }
+            pop();
+        }
+        
+        cout << "Value is not Present" << endl;
+        return -1;
+    }
+
 };
 
 int main(){
@@ -72,20 +86,22 @@ int main(){
     s.push(7);
     s.push(8);
 
-    while(!s.isEmpty()){
-        cout<< s.pop() << " ";
+    // while(!s.isEmpty()){
+    //     cout<< s.pop() << " ";
         
-    }
+    // }
+
+    s.Search(4);
 
 
-    cout<<"after reverse"<<endl;
-    s.reverseStack();
-    cout<< s.capacity() <<endl;
-    while(!s.isEmpty()){
-        cout<< s.pop() << " ";
+    // cout<<"after reverse"<<endl;
+    // s.reverseStack();
+    // cout<< s.capacity() <<endl;
+    // while(!s.isEmpty()){
+    //     cout<< s.pop() << " ";
         
-    }
-    cout<< endl;
+    // }
+    // cout<< endl;
    
 
     return 0;
