@@ -2,6 +2,8 @@
 #include<vector>
 #include<queue>
 #include<unordered_map>
+#include<set>
+#include<limits>
 using namespace std;
 
 #define DIR true
@@ -134,6 +136,40 @@ public:
     }
 };
 
+void dijistra(int src)
+    {
+        //Dijkstra's algorithm implementation can be added here if needed
+        vector<int > distace (vertices,INT_MAX);
+        set<pair<int , int> > set; //set to store the vertices and their distances    
+        st.insert({0,src}); //initially distance of source is 0
+        distace[src]=0;
+
+        while(!set.empty()){
+            auto SetMinWeight = *(set.begins());
+            int SetMinW = SetMinWeight.first;
+            int topElement = SetMinWeight.second;
+
+            set.erase(set.begin());
+
+            for(auto neigh : adjList[topNode]){
+                int node = neigh.first;
+                int weight = neigh.second;
+
+                if(distance[topNode]+ weight < distace[node]){
+                    distance[node] = distance[topNode] + weight;
+
+                    auto it = set.find({distance[node], node});
+
+                    if(it != set.end()){
+                        set.earse(it); // if found then delete it
+                    }
+                    distace[node] = distance[topNode] + weight;
+                    set.insert({distace[node], node});
+                }
+            }
+        }
+    }
+
 int main()
 {
     Graph G(7);
@@ -153,6 +189,8 @@ int main()
 
     G.dfsTraversal();
     G.bfsTraversal();
+
+    G.dijistra(0);
 
 
 
