@@ -42,6 +42,7 @@ public:
 
         cout << "Deleting top element: " << arr[0] << endl;
         swap(arr[0], arr[index - 1]);
+       // arr[0] = arr[index - 1];
         index--;
         heapify(0);
     }
@@ -80,6 +81,18 @@ public:
             cout << arr[i] << " ";
         }
         cout << endl;
+    }
+
+    void Display(){
+        cout<<"Displaying Min Heap: "<<endl;
+        int *temp = new int[index];
+        for(int i = 0; i < index; i++) {
+            temp[i] = arr[i];
+        }
+        for(int i = 0; i < index; i++) {
+            cout<<temp[i]<<" ";
+        }
+        cout<<endl;    
     }
 
     ~MinHeap() {
